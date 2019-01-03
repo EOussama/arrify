@@ -32,10 +32,10 @@ objects:
 
 # Testing arrify.
 test: all
-	${CC} ${CFLAGS} -o ./$@ ./tests/test.c ./dist/lib/arrify.a && \
+	${CC} ${CFLAGS} -o ./tests/$@ ./tests/test.c ./dist/lib/arrify.a && \
 	echo "|---[Testing Arrify]---|" && \
-	./$@ && \
-	rm -f ./$@
+	./tests/$@ && \
+	rm -f ./tests/$@
 
 
 # Cleaning the project from temporarily files.

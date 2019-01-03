@@ -9,33 +9,66 @@
 /**
  * Creates a new array list.
  */
-ArrayList_int newArrayList_int() 
+ArrayList_int newArrayList_int()
 {
     ArrayList_int arrayList;
 
-    arrayList.data = (int *) malloc(0);
+    arrayList.data = (int *)malloc(0);
     arrayList.count = 0;
 
     return arrayList;
 }
 
 /**
+ * Adds an entry to the array list at a specific index.
+ */
+void insertArrayList_int(ArrayList_int *arrayList, int value, int index)
+{
+    if (index >= 0 && index <= arrayList->count)
+    {
+        // Incrementing the count of the array list.
+        arrayList->count++;
+
+        // Allocating enough memory.
+        arrayList->data = (int *)realloc(arrayList->data, sizeof(int) * arrayList->count);
+
+        if (arrayList->data == NULL)
+        {
+            free(arrayList);
+            exit(1);
+        }
+        else
+        {
+            // Clearing the index for the new value by moving other
+            // values to upper indexes.
+            for (int i = arrayList->count - 1; i >= index; i--)
+            {
+                arrayList->data[i + 1] = arrayList->data[i];
+            }
+
+            // Adding the value to the array list.
+            arrayList->data[index] = value;
+        }
+    }
+}
+
+/**
  * Adds an entry to the array list.
  */
-void addArrayList_int(ArrayList_int *arrayList, int value)
+void pushArrayList_int(ArrayList_int *arrayList, int value)
 {
     // Incrementing the count of the array list.
     arrayList->count++;
-    
-    // Allocating enough memory.
-    arrayList->data = (int *) realloc(arrayList->data, sizeof(int) * arrayList->count);
 
-    if (arrayList->data == NULL) 
+    // Allocating enough memory.
+    arrayList->data = (int *)realloc(arrayList->data, sizeof(int) * arrayList->count);
+
+    if (arrayList->data == NULL)
     {
         free(arrayList);
         exit(1);
     }
-    else 
+    else
     {
         // Adding the value to the array list.
         arrayList->data[arrayList->count - 1] = value;
@@ -43,44 +76,63 @@ void addArrayList_int(ArrayList_int *arrayList, int value)
 }
 
 /**
- * Removes an entry from the array list.
+ * Removes an entry from the array list at a specific index.
  */
 void removeArrayList_int(ArrayList_int *arrayList, int index)
 {
-    if (index < 0) 
+    if (index >= 0 && index < arrayList->count)
     {
-        index = 0;
+        // Decrementing the count of the array list.
+        arrayList->count--;
+
+        // Removing the element at the given index.
+        while (index++ < arrayList->count)
+        {
+            arrayList->data[index - 1] = arrayList->data[index];
+        }
+
+        // Reallocating memory.
+        arrayList->data = (int *)realloc(arrayList->data, sizeof(int) * (arrayList->count));
+
+        if (arrayList->data == NULL)
+        {
+            free(arrayList);
+            exit(1);
+        }
     }
-    else if (index >= arrayList->count)
+}
+
+/**
+ * Removes the last entry from an array list.
+ */
+void popArrayList_int(ArrayList_int *arrayList)
+{
+    if (arrayList->count > 1)
     {
-        index = arrayList->count - 1;
+        // Decrementing the count of the array list.
+        arrayList->count--;
+
+        // Reallocating memory.
+        arrayList->data = (int *)realloc(arrayList->data, sizeof(int) * (arrayList->count));
+
+        if (arrayList->data == NULL)
+        {
+            free(arrayList);
+            exit(1);
+        }
     }
-
-    // Decrementing the count of the array list.
-    arrayList->count--;
-
-    // Removing the element at the given index.
-    while(index++ < arrayList->count) 
+    else if (arrayList->count == 1)
     {
-        arrayList->data[index - 1] = arrayList->data[index];
-    }
-
-    // Reallocating memory.
-    arrayList->data = (int *) realloc(arrayList->data, sizeof(int) * (arrayList->count));
-
-    if (arrayList->data == NULL) 
-    {
-        free(arrayList);
-        exit(1);
+        clearArrayList_int(arrayList);
     }
 }
 
 /**
  * Gets an entry of a specific index from an array list.
  */
-int getArrayList_int(ArrayList_int *arrayList, int index) 
+int getArrayList_int(ArrayList_int *arrayList, int index)
 {
-    if (index < 0) 
+    if (index < 0)
     {
         index = 0;
     }
@@ -95,8 +147,8 @@ int getArrayList_int(ArrayList_int *arrayList, int index)
 /**
  * Clears the an array list.
  */
-void clearArrayList_int(ArrayList_int *arrayList) 
+void clearArrayList_int(ArrayList_int *arrayList)
 {
-    arrayList->data = (int *) realloc(arrayList->data, 0);
+    arrayList->data = (int *)realloc(arrayList->data, 0);
     arrayList->count = 0;
 }

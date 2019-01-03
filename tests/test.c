@@ -10,21 +10,30 @@ int main()
 {
     ArrayList_int arrayList = newArrayList_int();
 
-    addArrayList_int(&arrayList, 36);
-    addArrayList_int(&arrayList, 100);
-    addArrayList_int(&arrayList, 26);
-    addArrayList_int(&arrayList, 199);
-    removeArrayList_int(&arrayList, 1);
+    pushArrayList_int(&arrayList, 36);
+    pushArrayList_int(&arrayList, 100);
+    pushArrayList_int(&arrayList, 33);
+    pushArrayList_int(&arrayList, 74);
 
-    for (int i = 0; i<arrayList.count; i++) 
+    for (int i = 0; i < arrayList.count; i++)
     {
-        printf("%d\n", getArrayList_int(&arrayList, i));
+        printf("%d\t%d\n", i, getArrayList_int(&arrayList, i));
+    }
+
+    insertArrayList_int(&arrayList, 99999999, 3);
+    removeArrayList_int(&arrayList, 3);
+    popArrayList_int(&arrayList);
+    puts("\nChanged:\n");
+
+    for (int i = 0; i < arrayList.count; i++)
+    {
+        printf("%d\t%d\n", i, getArrayList_int(&arrayList, i));
     }
 
     clearArrayList_int(&arrayList);
-    puts("\nCleared\n");
+    puts("\nCleared:\n");
 
-    for (int i = 0; i<arrayList.count; i++) 
+    for (int i = 0; i < arrayList.count; i++)
     {
         printf("%d\n", getArrayList_int(&arrayList, i));
     }

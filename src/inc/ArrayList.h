@@ -13,9 +13,13 @@ typedef struct
 
 ArrayList_int newArrayList_int();
 
-void addArrayList_int(ArrayList_int *arrayList, int value);
+void insertArrayList_int(ArrayList_int *arrayList, int value, int index);
+
+void pushArrayList_int(ArrayList_int *arrayList, int value);
 
 void removeArrayList_int(ArrayList_int *arrayList, int index);
+
+void popArrayList_int(ArrayList_int *arrayList);
 
 int getArrayList_int(ArrayList_int *arrayList, int index);
 

@@ -14,13 +14,19 @@ int main()
     addArrayList_int(&arrayList, 100);
     addArrayList_int(&arrayList, 26);
     addArrayList_int(&arrayList, 199);
-    
-
-    short x = removeArrayList_int(&arrayList, -1);
+    removeArrayList_int(&arrayList, 1);
 
     for (int i = 0; i<arrayList.count; i++) 
     {
-        printf("%d\n", arrayList.array[i]);
+        printf("%d\n", getArrayList_int(&arrayList, i));
+    }
+
+    clearArrayList_int(&arrayList);
+    puts("\nCleared\n");
+
+    for (int i = 0; i<arrayList.count; i++) 
+    {
+        printf("%d\n", getArrayList_int(&arrayList, i));
     }
 
     return EXIT_SUCCESS;

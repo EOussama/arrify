@@ -7,7 +7,7 @@
 
 typedef struct
 {
-    int *array;
+    int *data;
     int count;
 } ArrayList_int;
 
@@ -15,6 +15,10 @@ ArrayList_int newArrayList_int();
 
 void addArrayList_int(ArrayList_int *arrayList, int value);
 
-short removeArrayList_int(ArrayList_int *arrayList, int index);
+void removeArrayList_int(ArrayList_int *arrayList, int index);
+
+int getArrayList_int(ArrayList_int *arrayList, int index);
+
+void clearArrayList_int(ArrayList_int *arrayList);
 
 #endif

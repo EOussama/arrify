@@ -4,7 +4,7 @@
 # The build's macros.
 CC = gcc
 CFLAGS = -g -Wall
-OBJS = ArrayList.o
+OBJS = *.o
 
 
 # The default rule.
@@ -40,4 +40,4 @@ test: all
 
 # Cleaning the project from temporarily files.
 clean:
-	rm -rf ./dist/ ./build/ ./*.exe
+	rm -rf ./dist/ ./build/ ./*.exe ./tests/*.exe

@@ -1,0 +1,3 @@
+# Ignoring the “dist” and “build” folders.
+./dist/
+./build/

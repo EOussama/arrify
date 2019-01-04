@@ -22,13 +22,5 @@ void arrifyPrint(int *arr, int start, int length)
         }
     }
 
-    printf("]");
-}
-
-void arrifyInfo(int *arr)
-{
-    // Size
-    // Numbers
-    // Type
-    // Pointer
+    printf("]\n");
 }

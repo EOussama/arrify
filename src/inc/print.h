@@ -7,6 +7,4 @@
 
 void arrifyPrint(int *arr, int start, int length);
 
-void arrifyInfo(int *arr);
-
 #endif

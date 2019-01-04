@@ -8,7 +8,7 @@ void arrifyPrint(int *arr, int start, int length)
 {
     const int end = start + length;
 
-    printf("[%d] to [%d] ", start, start + length);
+    printf("From [%d] to [%d] => ", start, start + length);
 
     printf("[");
 

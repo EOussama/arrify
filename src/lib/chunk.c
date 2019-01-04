@@ -5,6 +5,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/**
+ * Chunks an array.
+ */
 int **arrifyChunk(int *src, int length, int chunks)
 {
     int **dest = (int **)malloc(sizeof(int *));

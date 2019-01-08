@@ -5,6 +5,6 @@
 #ifndef ARRAY_PRINT_H
 #define ARRAY_PRINT_H
 
-int arrifyCompact(int *arr, int length);
+void arrifyCompact(int *arr, int length);
 
 #endif

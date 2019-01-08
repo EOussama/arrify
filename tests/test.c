@@ -12,9 +12,9 @@ int main()
     int arr[] = {15, 0, 36, 0, 100, 30};
     int length = sizeof(arr) / sizeof(int);
 
+    arrifyPrint(arr, 0, length);
     arrifyCompact(arr, length);
-
-    //arrifyPrint(arr, 0, length);
+    arrifyPrint(arr, 0, length);
 
     return EXIT_SUCCESS;
 }

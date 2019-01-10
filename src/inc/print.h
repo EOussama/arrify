@@ -5,6 +5,8 @@
 #ifndef ARRAY_PRINT_H
 #define ARRAY_PRINT_H
 
-void arrifyPrint(int *arr, int start, int length);
+#include "ArrayList.h"
+
+void arrifyPrint(ArrayList arr, int start, int length);
 
 #endif

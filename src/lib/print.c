@@ -3,8 +3,9 @@
  */
 
 #include <stdio.h>
+#include "../inc/ArrayList.h"
 
-void arrifyPrint(int *arr, int start, int length)
+void arrifyPrint(ArrayList arr, int start, int length)
 {
     const int end = start + length;
 
@@ -14,7 +15,7 @@ void arrifyPrint(int *arr, int start, int length)
 
     for (int i = start; i < end; i++)
     {
-        printf("%d", *(arr + i));
+        printf("%d", getArrayList(&arr, i));
 
         if (i < end - 1)
         {

@@ -5,6 +5,8 @@
 #ifndef ARRAY_PRINT_H
 #define ARRAY_PRINT_H
 
-void arrifyCompact(int *arr, int length);
+#include "ArrayList.h"
+
+void arrifyCompact(ArrayList *arr);
 
 #endif

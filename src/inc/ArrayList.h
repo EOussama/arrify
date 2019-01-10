@@ -9,20 +9,20 @@ typedef struct
 {
     int *data;
     int count;
-} ArrayList_int;
+} ArrayList;
 
-ArrayList_int newArrayList_int();
+ArrayList newArrayList();
 
-void insertArrayList_int(ArrayList_int *arrayList, int value, int index);
+void insertArrayList(ArrayList *arrayList, int value, int index);
 
-void pushArrayList_int(ArrayList_int *arrayList, int value);
+void pushArrayList(ArrayList *arrayList, int value);
 
-void removeArrayList_int(ArrayList_int *arrayList, int index);
+void removeArrayList(ArrayList *arrayList, int index);
 
-void popArrayList_int(ArrayList_int *arrayList);
+void popArrayList(ArrayList *arrayList);
 
-int getArrayList_int(ArrayList_int *arrayList, int index);
+int getArrayList(ArrayList *arrayList, int index);
 
-void clearArrayList_int(ArrayList_int *arrayList);
+void clearArrayList(ArrayList *arrayList);
 
 #endif

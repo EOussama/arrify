@@ -3,39 +3,24 @@
  */
 
 #include <stdlib.h>
-#include "./../inc/print.h"
+#include "./../inc/ArrayList.h"
 
 /**
  * Removes all the falsy values from an array (0, false, '\0', NULL)
  */
-void arrifyCompact(int *arr, int length)
+void arrifyCompact(ArrayList *arr)
 {
-    int compactLength = 0;
-    int **compact = (int **)malloc(sizeof(int *) * 0);
+    int i = 0;
 
-    // Extracting the non-falsy values.
-    for (int i = 0; i < length; i++)
+    while(i < arr->count)
     {
-        if (arr[i] != 0)
+        if (getArrayList(arr, i) == 0)
         {
-            // Resizing the pointer array.
-            compact = (int **)realloc(compact, sizeof(int *) * ++compactLength);
-
-            // Affecting the non-falsy value.
-            *(compact + compactLength - 1) = &arr[i];
-        }
-    }
-
-    // Affecting non-falsy values.
-    for (int i = 0; i < length; i++)
-    {
-        if (i < compactLength)
-        {
-            arr[i] = *(int *)*(compact + i);
+            removeArrayList(arr, i);
         }
         else
         {
-            arr[i] = 0;
+            i++;
         }
     }
 }

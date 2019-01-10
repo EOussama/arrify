@@ -5,6 +5,8 @@
 #ifndef ARRAY_CHUNK_H
 #define ARRAY_CHUNK_H
 
-int **arrifyChunk(int *src, int length, int chunks);
+#include "ArrayList.h"
+
+int **arrifyChunk(ArrayList *src, int chunks);
 
 #endif

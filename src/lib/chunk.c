@@ -4,15 +4,16 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "../inc/ArrayList.h"
 
 /**
  * Chunks an array.
  */
-int **arrifyChunk(int *src, int length, int chunks)
+int **arrifyChunk(ArrayList *src, int chunks)
 {
     int **dest = (int **)malloc(sizeof(int *));
 
-    for (int i = 0, k = 0; i < length; i++)
+    for (int i = 0, k = 0; i < src->count; i++)
     {
         if (i % chunks == 0)
         {
@@ -20,9 +21,9 @@ int **arrifyChunk(int *src, int length, int chunks)
 
             for (int j = i; j < i + chunks; j++)
             {
-                if (j < length)
+                if (j < src->count)
                 {
-                    arr[j - i] = *(src + j);
+                    arr[j - i] = getArrayList(src, j);
                 }
             }
 
